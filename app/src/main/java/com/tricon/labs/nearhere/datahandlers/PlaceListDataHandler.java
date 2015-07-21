@@ -24,7 +24,7 @@ abstract public class PlaceListDataHandler extends VolleyBaseDataHandler<PlaceLi
                 .append(NearHereApplication.currentLocation.getLatitude())
                 .append(",")
                 .append(NearHereApplication.currentLocation.getLongitude())
-                .append("&rankby=distance&types=")
+                .append("&radius=1500&rankby=prominence&types=")
                 .append(type);
         GsonRequest<PlaceListResponse> gsonRequest = new GsonRequest<>(Request.Method.GET, url.toString(), listener, errorListener, PlaceListResponse.class);
         NearHereApplication.requestQueue.add(gsonRequest);

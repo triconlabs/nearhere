@@ -8,7 +8,7 @@ import com.tricon.labs.nearhere.R;
 
 public class PlaceDetailsActivity extends AppCompatActivity {
 
-    public static final String KEY_PLACE_ID = "com.tricon.labs.nearhere.activities.PlaceDetailsActivity.PLACE_ID";
+    public static final String KEY_PLACE = "com.tricon.labs.nearhere.activities.PlaceDetailsActivity.PLACE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

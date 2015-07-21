@@ -19,7 +19,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activities.SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:label="@string/title_activity_splash"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,11 +30,26 @@
         </activity>
         <activity
             android:name=".activities.HomeActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
         </activity>
         <activity
             android:name=".activities.PlacesActivity"
-            android:label="@string/title_activity_place_list" >
+            android:label="@string/title_activity_place_list"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activities.PlaceDetailsActivity"
+            android:label="@string/title_activity_place_details"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.PlacesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.PlacesActivity" />
         </activity>
 
         <meta-data
@@ -42,10 +59,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity
-            android:name=".activities.PlaceDetailsActivity"
-            android:label="@string/title_activity_place_details" >
-        </activity>
     </application>
 
 </manifest>

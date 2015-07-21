@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.google.gson.reflect.TypeToken;
 import com.tricon.labs.nearhere.R;
@@ -38,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         rvPlaceTypes.setAdapter(placeTypeListAdapter);
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
@@ -58,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private List<PlaceType> fetchPlaceTypes() {
         try {
@@ -79,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
     public void startPlaceListActivity(int position) {
         PlaceType placeType = placeTypeListAdapter.getItem(position);
         Intent intent = new Intent(this, PlacesActivity.class);
-        intent.putExtra(PlacesActivity.KEY_PLACE_TYPE, placeType.type);
+        intent.putExtra(PlacesActivity.KEY_PLACE_TYPE, placeType);
         startActivity(intent);
     }
 }

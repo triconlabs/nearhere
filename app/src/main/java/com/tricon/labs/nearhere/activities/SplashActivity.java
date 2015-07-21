@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -18,6 +20,8 @@ import com.tricon.labs.nearhere.init.NearHereApplication;
 public class SplashActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
+    private ProgressBar pbSplash;
+
     private GoogleApiClient googleApiClient;
 
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
@@ -26,6 +30,10 @@ public class SplashActivity extends AppCompatActivity implements GoogleApiClient
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        pbSplash = (ProgressBar) findViewById(R.id.pb_splash);
+
+        pbSplash.setVisibility(View.VISIBLE);
 
         if (checkPlayServices()) {
             googleApiClient = new GoogleApiClient.Builder(this)
@@ -75,6 +83,7 @@ public class SplashActivity extends AppCompatActivity implements GoogleApiClient
 
     @Override
     public void onLocationChanged(Location location) {
+        pbSplash.setVisibility(View.GONE);
         NearHereApplication.currentLocation = location;
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);

@@ -1,483 +1,75 @@
 [
   {
-    "name" : "Accounting",
-    "type" : "accounting",
-    "font" : "\uf042"
-  },
-  {
-    "name" : "Airport",
-    "type" : "airport",
-    "font" : "\uf072"
-  },
-  {
-    "name" : "Amusement Park",
-    "type" : "amusement_park",
-    "font" : "\uf037"
-  },
-  {
-    "name" : "Aquarium",
-    "type" : "aquarium",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Art Gallery",
-    "type" : "art_gallery",
-    "font" : "\uf13d"
-  },
-  {
-    "name" : "ATM",
-    "type" : "atm",
-    "font" : "\uf0d6"
-  },
-  {
-    "name" : "Bakery",
-    "type" : "bakery",
-    "font" : "\uf1fd"
-  },
-  {
-    "name" : "Bank",
-    "type" : "bank",
-    "font" : "\uf19c"
-  },
-  {
-    "name" : "Bar",
-    "type" : "bar",
-    "font" : "\uf0fc"
-  },
-  {
-    "name" : "Beauty Salon",
-    "type" : "beauty_salon",
-    "font" : "\uf17b"
-  },
-  {
-    "name" : "Bicycle Store",
-    "type" : "bicycle_store",
-    "font" : "\uf206"
-  },
-  {
-    "name" : "Book Store",
-    "type" : "book_store",
-    "font" : "\uf02d"
-  },
-  {
-    "name" : "Bowling Alley",
-    "type" : "bowling_alley",
-    "font" : "\uf1e3"
-  },
-  {
-    "name" : "Bus Station",
-    "type" : "bus_station",
-    "font" : "\uf207"
+    "name" : "Food",
+    "type" : "food|restaurant|meal_takeaway|meal_delivery"
   },
   {
     "name" : "Cafe",
-    "type" : "cafe",
-    "font" : "\uf0f4"
+    "type" : "cafe"
   },
   {
-    "name" : "Campground",
-    "type" : "campground",
-    "font" : "\uf187"
+    "name" : "Bar",
+    "type" : "bar|night_club|casino"
   },
   {
-    "name" : "Car Dealer",
-    "type" : "car_dealer",
-    "font" : "\uf1b9"
+    "name" : "Attractions",
+    "type" : "museum|amusement_park|aquarium|art_gallery|church|city_hall|hindu_temple|zoo|rv_park|place_of_worship|mosque|zoo|park"
   },
   {
-    "name" : "Car Rental",
-    "type" : "car_rental",
-    "font" : "\uf1ba"
-  },
-  {
-    "name" : "Car Repair",
-    "type" : "car_repair",
-    "font" : "\uf1b9"
-  },
-  {
-    "name" : "Car Wash",
-    "type" : "car_wash",
-    "font" : "\uf1b9"
-  },
-  {
-    "name" : "Casino",
-    "type" : "casino",
-    "font" : "\uf155"
-  },
-  {
-    "name" : "Cemetery",
-    "type" : "cemetery",
-    "font" : "\uf069]"
-  },
-  {
-    "name" : "Church",
-    "type" : "church",
-    "font" : "\uf0f3"
-  },
-  {
-    "name" : "City Hall",
-    "type" : "city_hall",
-    "font" : "\uf140"
-  },
-  {
-    "name" : "Clothing Store",
-    "type" : "clothing_store",
-    "font" : "\uf20d"
-  },
-  {
-    "name" : "Convenience Store",
-    "type" : "convenience_store",
-    "font" : "\uf133"
-  },
-  {
-    "name" : "Court House",
-    "type" : "courthouse",
-    "font" : "\uf1ae"
-  },
-  {
-    "name" : "Dentist",
-    "type" : "dentist",
-    "font" : "\uf1cb"
-  },
-  {
-    "name" : "Department Store",
-    "type" : "department_store",
-    "font" : "\uf075"
-  },
-  {
-    "name" : "Doctor",
-    "type" : "doctor",
-    "font" : "\uf0f8"
-  },
-  {
-    "name" : "Electrician",
-    "type" : "electrician",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Electronics Store",
-    "type" : "electronics_store",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Embassy",
-    "type" : "embassy",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Establishment",
-    "type" : "establishment",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Finance",
-    "type" : "finance",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Fire Station",
-    "type" : "fire_station",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Florist",
-    "type" : "florist",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Food",
-    "type" : "food",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Funeral Home",
-    "type" : "funeral_home",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Furniture Store",
-    "type" : "furniture_store",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Gas Station",
-    "type" : "gas_station",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "General Contractor",
-    "type" : "general_contractor",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Grocery or Supermarket",
-    "type" : "grocery_or_supermarket",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Gym",
-    "type" : "gym",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Hair Care",
-    "type" : "hair_care",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Hardware Store",
-    "type" : "hardware_store",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Health",
-    "type" : "health",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Temple",
-    "type" : "hindu_temple",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Home Goods Store",
-    "type" : "home_goods_store",
-    "font" : "\uf025"
+    "name" : "ATM",
+    "type" : "atm"
   },
   {
     "name" : "Hospital",
-    "type" : "hospital",
-    "font" : "\uf025"
+    "type" : "hospital|doctor|dentist|health"
   },
   {
-    "name" : "Insurance Agency",
-    "type" : "insurance_agency",
-    "font" : "\uf025"
+    "name" : "Bakery",
+    "type" : "bakery"
   },
   {
-    "name" : "Jewelry Store",
-    "type" : "jewelry_store",
-    "font" : "\uf025"
+    "name" : "Beauty Salon",
+    "type" : "beauty_salon|hair_care|spa"
   },
   {
-    "name" : "Laundry",
-    "type" : "laundry",
-    "font" : "\uf025"
+    "name" : "Bowling Alley",
+    "type" : "bowling_alley"
   },
   {
-    "name" : "Lawyer",
-    "type" : "lawyer",
-    "font" : "\uf025"
+    "name" : "Cafe",
+    "type" : "cafe"
   },
   {
-    "name" : "Library",
-    "type" : "library",
-    "font" : "\uf025"
+    "name" : "Car World",
+    "type" : "car_wash|car_repair|car_rental|car_dealer"
   },
   {
-    "name" : "Liquor Store",
-    "type" : "liquor_store",
-    "font" : "\uf025"
+    "name" : "Shopping",
+    "type" : "shoe_store|shopping_mall|clothing_store|jewelry_store"
   },
   {
-    "name" : "Local Government Office",
-    "type" : "local_government_office",
-    "font" : "\uf025"
+    "name" : "Groceries",
+    "type" : "grocery_or_supermarket|department_store|convenience_store|home_goods_store"
   },
   {
-    "name" : "Locksmith",
-    "type" : "locksmith",
-    "font" : "\uf025"
+    "name" : "Home",
+    "type" : "furniture_store|hardware_store|electronics_store|electrician|plumber|laundry"
+  },
+  {
+    "name" : "Gym",
+    "type" : "gym"
+  },
+  {
+    "name" : "Movies",
+    "type" : "movie_theater|movie_rental"
   },
   {
     "name" : "Lodging",
-    "type" : "lodging",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Meal Delivery",
-    "type" : "meal_delivery",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Meal Takeaway",
-    "type" : "meal_takeaway",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Mosque",
-    "type" : "mosque",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Movie Rental",
-    "type" : "movie_rental",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Movie Theater",
-    "type" : "movie_theater",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Moving Company",
-    "type" : "moving_company",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Museum",
-    "type" : "museum",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Night Club",
-    "type" : "night_club",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Painter",
-    "type" : "painter",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Park",
-    "type" : "park",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Parking",
-    "type" : "parking",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Pet Store",
-    "type" : "pet_store",
-    "font" : "\uf025"
+    "type" : "lodging"
   },
   {
     "name" : "Pharmacy",
-    "type" : "pharmacy",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Physiotherapist",
-    "type" : "physiotherapist",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Place Of Worship",
-    "type" : "place_of_worship",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Plumber",
-    "type" : "plumber",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Police",
-    "type" : "police",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Post Office",
-    "type" : "post_office",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Real Estate Agency",
-    "type" : "real_estate_agency",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Restaurant",
-    "type" : "restaurant",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Roofing Contractor",
-    "type" : "roofing_contractor",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "RV Park",
-    "type" : "rv_park",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "School",
-    "type" : "school",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Shoe Store",
-    "type" : "shoe_store",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Shopping Mall",
-    "type" : "shopping_mall",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Spa",
-    "type" : "spa",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Stadium",
-    "type" : "stadium",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Storage",
-    "type" : "storage",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Store",
-    "type" : "store",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Subway Station",
-    "type" : "subway_station",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Synagogue",
-    "type" : "synagogue",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Taxi Stand",
-    "type" : "taxi_stand",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Train Station",
-    "type" : "train_station",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Travel Agency",
-    "type" : "travel_agency",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "University",
-    "type" : "university",
-    "font" : "\uf025"
-  },
-  {
-    "name" : "Veterinary Care",
-    "type" : "veterinary_care",
-    "font" : "\uf025"
-  },
-  {
-  "name" : "Zoo",
-  "type" : "zoo",
-  "font" : "\uf025"
+    "type" : "pharmacy"
   }
 
 ]
