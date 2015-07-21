@@ -46,6 +46,7 @@
             android:name=".activities.PlaceDetailsActivity"
             android:label="@string/title_activity_place_details"
             android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:parentActivityName=".activities.PlacesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

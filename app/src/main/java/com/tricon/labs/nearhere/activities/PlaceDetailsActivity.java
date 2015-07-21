@@ -1,10 +1,14 @@
 package com.tricon.labs.nearhere.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
+import com.tricon.labs.nearhere.models.Place;
 
 public class PlaceDetailsActivity extends AppCompatActivity {
 
@@ -18,6 +22,18 @@ public class PlaceDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        ImageView ivPlaceCoverPhoto = (ImageView) findViewById(R.id.iv_place_cover_photo);
+
+        Place place = getIntent().getParcelableExtra(KEY_PLACE);
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
+        collapsingToolbarLayout.setTitle(place.name);
+        if(null != place.photos && place.photos.size() > 0) {
+            imageLoader.displayImage(place.photos.get(0).getPhotoReference(), ivPlaceCoverPhoto);
+        }
     }
 
     /*@Override

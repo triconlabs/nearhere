@@ -90,7 +90,7 @@ public class PlacesActivity extends AppCompatActivity {
 
     public void startPlaceDetailsActivity(int position) {
         Place place = placeListAdapter.getItem(position);
-        Intent intent = new Intent(this, PlacesActivity.class);
+        Intent intent = new Intent(this, PlaceDetailsActivity.class);
         intent.putExtra(PlaceDetailsActivity.KEY_PLACE, place);
         startActivity(intent);
     }

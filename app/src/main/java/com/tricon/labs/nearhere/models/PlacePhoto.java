@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
+import com.tricon.labs.nearhere.utils.NearHereConstants;
 
 /**
  * Created by gautam on 7/20/2015.
@@ -11,7 +12,13 @@ import com.google.gson.annotations.SerializedName;
 public class PlacePhoto implements Parcelable{
 
     @SerializedName("photo_reference")
-    public String photoReference;
+    private String photoReference;
+
+    public static final String PLACE_PHOTO_URL = NearHereConstants.PLACES_API_BASE_URL + "photo?maxheight=400&key=" + NearHereConstants.BROWSER_API_KEY + "&photoreference=";
+
+    public String getPhotoReference() {
+        return (PLACE_PHOTO_URL + photoReference);
+    }
 
     protected PlacePhoto(Parcel in) {
         photoReference = in.readString();

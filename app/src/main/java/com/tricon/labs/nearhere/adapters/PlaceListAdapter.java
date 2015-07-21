@@ -12,7 +12,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.activities.PlacesActivity;
 import com.tricon.labs.nearhere.models.Place;
-import com.tricon.labs.nearhere.utils.NearHereConstants;
 
 import java.util.List;
 
@@ -23,8 +22,6 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
 
     private List<Place> places;
     private ImageLoader imageLoader;
-
-    private static final String PLACE_PHOTO_URL = NearHereConstants.PLACES_API_BASE_URL + "photo?maxheight=400&key=" + NearHereConstants.BROWSER_API_KEY + "&photoreference=";
 
     public PlaceListAdapter(List<Place> places) {
         this.places = places;
@@ -41,7 +38,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
     public void onBindViewHolder(PlaceViewHolder holder, int position) {
         Place place = places.get(position);
         if(null != place.photos && place.photos.size() > 0) {
-            imageLoader.displayImage(PLACE_PHOTO_URL + place.photos.get(0).photoReference, holder.ivPlaceCoverPhoto);
+            imageLoader.displayImage(place.photos.get(0).getPhotoReference(), holder.ivPlaceCoverPhoto);
         } else {
             imageLoader.displayImage("", holder.ivPlaceCoverPhoto);
         }
