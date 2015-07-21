@@ -11,8 +11,7 @@ import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.adapters.PlaceListAdapter;
 import com.tricon.labs.nearhere.datahandlers.PlaceListDataHandler;
 import com.tricon.labs.nearhere.models.Place;
-
-import java.util.List;
+import com.tricon.labs.nearhere.models.PlaceListResponse;
 
 public class PlacesActivity extends AppCompatActivity {
 
@@ -33,8 +32,8 @@ public class PlacesActivity extends AppCompatActivity {
 
         PlaceListDataHandler placeListDataHandler = new PlaceListDataHandler() {
             @Override
-            public void resultReceived(List<Place> places) {
-                placeListAdapter = new PlaceListAdapter(places);
+            public void resultReceived(PlaceListResponse placeListResponse) {
+                placeListAdapter = new PlaceListAdapter(placeListResponse.places);
                 rvPlaces.setAdapter(placeListAdapter);
             }
 

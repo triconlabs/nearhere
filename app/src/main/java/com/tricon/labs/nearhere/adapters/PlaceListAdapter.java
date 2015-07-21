@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.activities.PlacesActivity;
-import com.tricon.labs.nearhere.init.NearHereApplication;
 import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.utils.NearHereConstants;
 
@@ -22,10 +22,13 @@ import java.util.List;
 public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.PlaceViewHolder>{
 
     private List<Place> places;
-    private static final String PLACE_PHOTO_URL = NearHereConstants.PLACES_API_BASE_URL + "photo?maxheight=150&key=" + NearHereConstants.BROWSER_API_KEY + "&photoreference=";
+    private ImageLoader imageLoader;
+
+    private static final String PLACE_PHOTO_URL = NearHereConstants.PLACES_API_BASE_URL + "photo?maxheight=400&key=" + NearHereConstants.BROWSER_API_KEY + "&photoreference=";
 
     public PlaceListAdapter(List<Place> places) {
         this.places = places;
+        this.imageLoader = ImageLoader.getInstance();
     }
 
     @Override
@@ -38,9 +41,9 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
     public void onBindViewHolder(PlaceViewHolder holder, int position) {
         Place place = places.get(position);
         if(null != place.photos && place.photos.size() > 0) {
-            holder.ivPlaceCoverPhoto.setImageUrl(PLACE_PHOTO_URL + place.photos.get(0).photoReference, NearHereApplication.imageLoader);
+            imageLoader.displayImage(PLACE_PHOTO_URL + place.photos.get(0).photoReference, holder.ivPlaceCoverPhoto);
         } else {
-            holder.ivPlaceCoverPhoto.setImageResource(android.R.color.white);
+            imageLoader.displayImage("", holder.ivPlaceCoverPhoto);
         }
         holder.tvPlaceName.setText(place.name);
         holder.tvRating.setText(place.rating + "");
@@ -57,13 +60,13 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public NetworkImageView ivPlaceCoverPhoto;
+        public ImageView ivPlaceCoverPhoto;
         public TextView tvPlaceName;
         public TextView tvRating;
 
         public PlaceViewHolder(View itemView) {
             super(itemView);
-            ivPlaceCoverPhoto = (NetworkImageView) itemView.findViewById(R.id.iv_place_cover_photo);
+            ivPlaceCoverPhoto = (ImageView) itemView.findViewById(R.id.iv_place_cover_photo);
             tvPlaceName = (TextView) itemView.findViewById(R.id.tv_place_name);
             tvRating = (TextView) itemView.findViewById(R.id.tv_rating);
             CardView cvCategoryCard = (CardView) itemView.findViewById(R.id.cv_place);

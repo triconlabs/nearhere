@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:7.5.0'
     compile 'com.mcxiaoke.volley:library:1.0.16'
     compile 'com.android.support:design:22.2.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
 }

@@ -4,6 +4,7 @@ import com.android.volley.Request;
 import com.google.gson.reflect.TypeToken;
 import com.tricon.labs.nearhere.init.NearHereApplication;
 import com.tricon.labs.nearhere.models.Place;
+import com.tricon.labs.nearhere.models.PlaceListResponse;
 import com.tricon.labs.nearhere.utils.NearHereConstants;
 import com.tricon.labs.nearhere.volley.GsonRequest;
 
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by gautam on 7/20/2015.
  */
-abstract public class PlaceListDataHandler extends VolleyBaseDataHandler<List<Place>> {
+abstract public class PlaceListDataHandler extends VolleyBaseDataHandler<PlaceListResponse> {
 
     private static final String NEARBY_SEARCH_API = "nearbysearch";
 
@@ -25,7 +26,7 @@ abstract public class PlaceListDataHandler extends VolleyBaseDataHandler<List<Pl
                 .append(NearHereApplication.currentLocation.getLongitude())
                 .append("&rankby=distance&types=")
                 .append(type);
-        GsonRequest<List<Place>> gsonRequest = new GsonRequest<>(Request.Method.GET, url.toString(), listener, errorListener, new TypeToken<List<Place>>(){}.getType());
+        GsonRequest<PlaceListResponse> gsonRequest = new GsonRequest<>(Request.Method.GET, url.toString(), listener, errorListener, PlaceListResponse.class);
         NearHereApplication.requestQueue.add(gsonRequest);
     }
 
