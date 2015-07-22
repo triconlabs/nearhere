@@ -63,8 +63,8 @@ public class Place implements Parcelable {
         permanentlyClosed = in.readByte() != 0;
         geometry = in.readParcelable(Geometry.class.getClassLoader());
         openingInfo = in.readParcelable(PlaceOpeningInfo.class.getClassLoader());
-        in.readTypedList(photos, PlacePhoto.CREATOR);
-        in.readTypedList(reviews, PlaceReview.CREATOR);
+        photos = in.readArrayList(PlacePhoto.class.getClassLoader());
+        reviews = in.readArrayList(PlaceReview.class.getClassLoader());
     }
 
     @Override
@@ -86,12 +86,8 @@ public class Place implements Parcelable {
         dest.writeByte((byte) (permanentlyClosed ? 1 : 0));
         dest.writeParcelable(geometry, flags);
         dest.writeParcelable(openingInfo, flags);
-        if(null != photos) {
-            dest.writeTypedList(photos);
-        }
-        if(null != reviews) {
-            dest.writeTypedList(reviews);
-        }
+        dest.writeList(photos);
+        dest.writeList(reviews);
     }
 
     public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
