@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
-import com.tricon.labs.nearhere.utils.NearHereConstants;
 
 import java.util.List;
 
@@ -60,11 +59,12 @@ public class Place implements Parcelable {
         vicinity = in.readString();
         website = in.readString();
         priceLevel = in.readInt();
+        rating = in.readFloat();
         permanentlyClosed = in.readByte() != 0;
         geometry = in.readParcelable(Geometry.class.getClassLoader());
         openingInfo = in.readParcelable(PlaceOpeningInfo.class.getClassLoader());
-        photos = in.readArrayList(PlacePhoto.class.getClassLoader());
-        reviews = in.readArrayList(PlaceReview.class.getClassLoader());
+        in.readTypedList(photos, PlacePhoto.CREATOR);
+        in.readTypedList(reviews, PlaceReview.CREATOR);
     }
 
     @Override
@@ -82,11 +82,16 @@ public class Place implements Parcelable {
         dest.writeString(googlePlusUrl);
         dest.writeString(website);
         dest.writeInt(priceLevel);
+        dest.writeFloat(rating);
         dest.writeByte((byte) (permanentlyClosed ? 1 : 0));
         dest.writeParcelable(geometry, flags);
         dest.writeParcelable(openingInfo, flags);
-        dest.writeList(photos);
-        dest.writeList(reviews);
+        if(null != photos) {
+            dest.writeTypedList(photos);
+        }
+        if(null != reviews) {
+            dest.writeTypedList(reviews);
+        }
     }
 
     public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
