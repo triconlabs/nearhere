@@ -57,7 +57,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         if(null != place.photos && place.photos.size() > 0) {
             imageLoader.displayImage(place.photos.get(0).getPhotoReference(), ivPlaceCoverPhoto);
         }
-        if(place.openingInfo.openNow) {
+        if(null == place.openingInfo || place.openingInfo.openNow) {
             tvOpen.setText("Yes");
         } else {
             tvOpen.setText("No");
@@ -104,7 +104,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-        map.getUiSettings().setScrollGesturesEnabled(false);
+        map.getUiSettings().setAllGesturesEnabled(false);
         if(isDetailsAvailable) {
             updateMap();
         }
