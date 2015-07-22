@@ -20,7 +20,7 @@ public class PlacePhoto implements Parcelable{
         return (PLACE_PHOTO_URL + photoReference);
     }
 
-    protected PlacePhoto(Parcel in) {
+    public PlacePhoto(Parcel in) {
         photoReference = in.readString();
     }
 

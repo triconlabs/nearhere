@@ -80,6 +80,7 @@ public class Place implements Parcelable {
         dest.writeString(phoneNo);
         dest.writeString(icon);
         dest.writeString(googlePlusUrl);
+        dest.writeString(vicinity);
         dest.writeString(website);
         dest.writeInt(priceLevel);
         dest.writeFloat(rating);

@@ -12,7 +12,7 @@ public class PlaceType implements Parcelable{
 
     public String type;
 
-    protected PlaceType(Parcel in) {
+    public PlaceType(Parcel in) {
         name = in.readString();
         type = in.readString();
     }

@@ -20,7 +20,7 @@ public class PlaceReview implements Parcelable {
 
     public long time;
 
-    protected PlaceReview(Parcel in) {
+    public PlaceReview(Parcel in) {
         authorName = in.readString();
         rating = in.readInt();
         review = in.readString();
