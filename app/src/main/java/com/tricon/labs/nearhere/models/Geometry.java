@@ -8,7 +8,7 @@ import android.os.Parcelable;
  */
 public class Geometry implements Parcelable {
 
-    Location location;
+    public Location location;
 
     public Geometry(Parcel in) {
         location = in.readParcelable(Location.class.getClassLoader());
