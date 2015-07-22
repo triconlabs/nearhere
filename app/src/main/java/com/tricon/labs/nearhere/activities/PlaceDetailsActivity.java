@@ -4,13 +4,30 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
+import com.tricon.labs.nearhere.datahandlers.PlaceDetailsDataHandler;
 import com.tricon.labs.nearhere.models.Place;
+import com.tricon.labs.nearhere.models.PlaceDetailsResponse;
 
-public class PlaceDetailsActivity extends AppCompatActivity {
+public class PlaceDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private GoogleMap map;
+    private Place place;
+    private boolean isDetailsAvailable = false;
 
     public static final String KEY_PLACE = "com.tricon.labs.nearhere.activities.PlaceDetailsActivity.PLACE";
 
@@ -26,14 +43,40 @@ public class PlaceDetailsActivity extends AppCompatActivity {
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         ImageView ivPlaceCoverPhoto = (ImageView) findViewById(R.id.iv_place_cover_photo);
+        TextView tvRating = (TextView) findViewById(R.id.tv_rating);
+        TextView tvOpen = (TextView) findViewById(R.id.tv_open);
 
-        Place place = getIntent().getParcelableExtra(KEY_PLACE);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        place = getIntent().getParcelableExtra(KEY_PLACE);
         ImageLoader imageLoader = ImageLoader.getInstance();
 
         collapsingToolbarLayout.setTitle(place.name);
+        tvRating.setText(place.rating + "");
         if(null != place.photos && place.photos.size() > 0) {
             imageLoader.displayImage(place.photos.get(0).getPhotoReference(), ivPlaceCoverPhoto);
         }
+        if(place.openingInfo.openNow) {
+            tvOpen.setText("Yes");
+        } else {
+            tvOpen.setText("No");
+        }
+
+        PlaceDetailsDataHandler placeDetailsDataHandler = new PlaceDetailsDataHandler() {
+            @Override
+            public void resultReceived(PlaceDetailsResponse placeDetailsResponse) {
+                place = placeDetailsResponse.place;
+                updateUI();
+            }
+
+            @Override
+            public void errorReceived(String msg) {
+                Toast.makeText(PlaceDetailsActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        };
+        placeDetailsDataHandler.fetchPlaceDetails(place.placeId);
+
     }
 
     /*@Override
@@ -57,4 +100,39 @@ public class PlaceDetailsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }*/
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+        map.getUiSettings().setScrollGesturesEnabled(false);
+        if(isDetailsAvailable) {
+            updateMap();
+        }
+    }
+
+    private void updateUI() {
+        isDetailsAvailable = true;
+        if(null != map) {
+            updateMap();
+        }
+        if(null != place.phoneNo) {
+            TextView tvPhoneNo = (TextView) findViewById(R.id.tv_phone_no);
+            RelativeLayout rlPhoneNo = (RelativeLayout) findViewById(R.id.rl_phone_no);
+            tvPhoneNo.setText(place.phoneNo);
+            rlPhoneNo.setVisibility(View.VISIBLE);
+        }
+        if(null != place.website) {
+            TextView tvWebsite = (TextView) findViewById(R.id.tv_website);
+            RelativeLayout rlWebsite = (RelativeLayout) findViewById(R.id.rl_website);
+            tvWebsite.setText(place.website);
+            rlWebsite.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void updateMap() {
+        LatLng latLng = new LatLng(place.geometry.location.lat, place.geometry.location.lng);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(place.address));
+        marker.showInfoWindow();
+    }
 }

@@ -6,4 +6,8 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_place_list">PlaceListActivity</string>
     <string name="title_activity_place_details">PlaceDetailsActivity</string>
+    <string name="rating">Rating :</string>
+    <string name="phone_no">Phone No :</string>
+    <string name="open">Open :</string>
+    <string name="website">Website :</string>
 </resources>

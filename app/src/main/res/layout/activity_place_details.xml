@@ -48,6 +48,144 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="12dp">
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:name="com.google.android.gms.maps.MapFragment"/>
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/rating"/>
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawableRight="@mipmap/star"
+                    android:drawablePadding="7dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30000000"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_phone_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/phone_no"/>
+
+                <TextView
+                    android:id="@+id/tv_phone_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30000000"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/open"/>
+
+                <TextView
+                    android:id="@+id/tv_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30000000"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_website"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/website"/>
+
+                <TextView
+                    android:id="@+id/tv_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30000000"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
