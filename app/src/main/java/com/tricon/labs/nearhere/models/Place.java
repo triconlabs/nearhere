@@ -49,6 +49,8 @@ public class Place implements Parcelable {
 
     public List<PlaceReview> reviews;
 
+    public double distance;
+
     public Place(Parcel in) {
         placeId = in.readString();
         name = in.readString();
@@ -65,6 +67,7 @@ public class Place implements Parcelable {
         openingInfo = in.readParcelable(PlaceOpeningInfo.class.getClassLoader());
         photos = in.readArrayList(PlacePhoto.class.getClassLoader());
         reviews = in.readArrayList(PlaceReview.class.getClassLoader());
+        distance = in.readDouble();
     }
 
     @Override
@@ -89,6 +92,7 @@ public class Place implements Parcelable {
         dest.writeParcelable(openingInfo, flags);
         dest.writeList(photos);
         dest.writeList(reviews);
+        dest.writeDouble(distance);
     }
 
     public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {

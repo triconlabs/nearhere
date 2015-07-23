@@ -26,6 +26,8 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
     private List<Place> places;
     private ImageLoader imageLoader;
 
+    private static final DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
+
     public PlaceListAdapter(List<Place> places) {
         this.places = places;
         this.imageLoader = ImageLoader.getInstance();
@@ -40,17 +42,19 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
     @Override
     public void onBindViewHolder(PlaceViewHolder holder, int position) {
         Place place = places.get(position);
-        float [] distance = new float[1];
-        Location.distanceBetween(NearHereApplication.currentLocation.getLatitude(), NearHereApplication.currentLocation.getLongitude(), place.geometry.location.lat, place.geometry.location.lng, distance);
+        if(0.0d == place.distance) {
+            float[] distance = new float[1];
+            Location.distanceBetween(NearHereApplication.currentLocation.getLatitude(), NearHereApplication.currentLocation.getLongitude(), place.geometry.location.lat, place.geometry.location.lng, distance);
+            place.distance = distance[0]/1000;
+        }
         if(null != place.photos && place.photos.size() > 0) {
             imageLoader.displayImage(place.photos.get(0).getPhotoReference(), holder.ivPlaceCoverPhoto);
         } else {
             imageLoader.displayImage("", holder.ivPlaceCoverPhoto);
         }
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         holder.tvPlaceName.setText(place.name);
         holder.tvRating.setText(place.rating + "");
-        holder.tvDistance.setText(decimalFormat.format(distance[0]/1000)+"km");
+        holder.tvDistance.setText(mDecimalFormat.format(place.distance)+"km");
     }
 
     @Override
