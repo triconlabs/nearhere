@@ -48,6 +48,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
 
         SupportMapFragment mapFragment = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFragment.getMapAsync(this);
+        mapFragment.getView().setClickable(false);
 
         place = getIntent().getParcelableExtra(KEY_PLACE);
         ImageLoader imageLoader = ImageLoader.getInstance();
@@ -141,7 +142,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
     private void updateMap() {
         LatLng latLng = new LatLng(place.geometry.location.lat, place.geometry.location.lng);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-        Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(place.address));
+        Marker marker = map.addMarker(new MarkerOptions().position(latLng));
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
