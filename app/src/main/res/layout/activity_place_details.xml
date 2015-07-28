@@ -119,8 +119,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:autoLink="phone"
+                    android:textColor="@android:color/black"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -185,8 +186,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:autoLink="web"
+                    android:textColor="@android:color/black"/>
 
                 <View
                     android:layout_width="match_parent"
