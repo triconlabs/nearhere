@@ -1,7 +1,5 @@
 package com.tricon.labs.nearhere.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -15,17 +13,15 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
-import com.tricon.labs.nearhere.customviews.ScrollableMapFragment;
 import com.tricon.labs.nearhere.datahandlers.PlaceDetailsDataHandler;
 import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.models.PlaceDetailsResponse;
-
-import java.util.Locale;
 
 public class PlaceDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -49,9 +45,8 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         ImageView ivPlaceCoverPhoto = (ImageView) findViewById(R.id.iv_place_cover_photo);
         TextView tvRating = (TextView) findViewById(R.id.tv_rating);
         TextView tvOpen = (TextView) findViewById(R.id.tv_open);
-        RelativeLayout rlMapView = (RelativeLayout) findViewById(R.id.rl_map_view);
 
-        ScrollableMapFragment mapFragment = ((ScrollableMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
+        SupportMapFragment mapFragment = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFragment.getMapAsync(this);
 
         place = getIntent().getParcelableExtra(KEY_PLACE);
@@ -82,14 +77,14 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         };
         placeDetailsDataHandler.fetchPlaceDetails(place.placeId);
 
-        rlMapView.setOnClickListener(new View.OnClickListener() {
+        /*viewTransparent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", place.geometry.location.lat, place.geometry.location.lng, place.name);
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 
@@ -118,7 +113,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-        map.getUiSettings().setAllGesturesEnabled(false);
+        //map.getUiSettings().setAllGesturesEnabled(false);
         if(isDetailsAvailable) {
             updateMap();
         }
