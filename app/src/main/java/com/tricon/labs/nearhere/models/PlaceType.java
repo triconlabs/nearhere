@@ -12,6 +12,8 @@ public class PlaceType implements Parcelable{
 
     public String type;
 
+    public String resId;
+
     public PlaceType(Parcel in) {
         name = in.readString();
         type = in.readString();

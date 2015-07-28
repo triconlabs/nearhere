@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
 
         RecyclerView rvPlaceTypes = (RecyclerView) findViewById(R.id.rv_place_types);
 
-        placeTypeListAdapter = new PlaceTypeListAdapter(fetchPlaceTypes());
+        placeTypeListAdapter = new PlaceTypeListAdapter(this, fetchPlaceTypes());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
 
         rvPlaceTypes.setLayoutManager(gridLayoutManager);

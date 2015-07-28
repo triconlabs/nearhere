@@ -1,5 +1,7 @@
 package com.tricon.labs.nearhere.adapters;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,9 +22,13 @@ import java.util.List;
 public class PlaceTypeListAdapter extends RecyclerView.Adapter<PlaceTypeListAdapter.PlaceTypeViewHolder> {
 
     private List<PlaceType> placeTypes;
+    private String packageName;
+    private Resources resources;
 
-    public PlaceTypeListAdapter(List<PlaceType> placeTypes) {
+    public PlaceTypeListAdapter(Context context, List<PlaceType> placeTypes) {
         this.placeTypes = placeTypes;
+        this.packageName = context.getPackageName();
+        this.resources = context.getResources();
     }
 
     @Override
@@ -34,6 +40,7 @@ public class PlaceTypeListAdapter extends RecyclerView.Adapter<PlaceTypeListAdap
     public void onBindViewHolder(PlaceTypeViewHolder holder, int position) {
         PlaceType placeType = getItem(position);
         holder.tvPlaceType.setText(placeType.name);
+        holder.ivPlaceType.setImageResource(resources.getIdentifier(placeType.resId, "mipmap", packageName));
     }
 
     @Override

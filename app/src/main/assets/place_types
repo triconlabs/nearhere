@@ -1,75 +1,88 @@
 [
   {
     "name" : "Food",
-    "type" : "food|restaurant|meal_takeaway|meal_delivery"
+    "type" : "restaurant",
+    "resId" : "food"
   },
   {
     "name" : "Cafe",
-    "type" : "cafe"
+    "type" : "cafe",
+    "resId" : "cafe"
   },
   {
     "name" : "Bar",
-    "type" : "bar|night_club|casino"
+    "type" : "bar|night_club|casino",
+    "resId" : "bar"
   },
   {
     "name" : "Attractions",
-    "type" : "museum|amusement_park|aquarium|art_gallery|church|city_hall|hindu_temple|zoo|rv_park|place_of_worship|mosque|zoo|park"
+    "type" : "museum|amusement_park|aquarium|art_gallery|church|hindu_temple|zoo|place_of_worship|mosque",
+    "resId" : "attractions"
   },
   {
     "name" : "ATM",
-    "type" : "atm"
+    "type" : "atm",
+    "resId" : "atm"
   },
   {
     "name" : "Hospital",
-    "type" : "hospital|doctor|dentist|health"
+    "type" : "hospital|doctor|dentist",
+    "resId" : "hospital"
   },
   {
     "name" : "Bakery",
-    "type" : "bakery"
+    "type" : "bakery",
+    "resId" : "bakery"
   },
   {
     "name" : "Beauty Salon",
-    "type" : "beauty_salon|hair_care|spa"
+    "type" : "beauty_salon|hair_care|spa",
+    "resId" : "beauty"
   },
   {
     "name" : "Bowling Alley",
-    "type" : "bowling_alley"
-  },
-  {
-    "name" : "Cafe",
-    "type" : "cafe"
+    "type" : "bowling_alley",
+    "resId" : "bowling"
   },
   {
     "name" : "Car World",
-    "type" : "car_wash|car_repair|car_rental|car_dealer"
+    "type" : "car_wash|car_repair|car_rental|car_dealer",
+    "resId" : "car"
   },
   {
     "name" : "Shopping",
-    "type" : "shoe_store|shopping_mall|clothing_store|jewelry_store"
+    "type" : "shoe_store|shopping_mall|clothing_store|jewelry_store",
+    "resId" : "shopping"
   },
   {
     "name" : "Groceries",
-    "type" : "grocery_or_supermarket|department_store|convenience_store|home_goods_store"
+    "type" : "grocery_or_supermarket",
+    "resId" : "grocery"
   },
   {
     "name" : "Home",
-    "type" : "furniture_store|hardware_store|electronics_store|electrician|plumber|laundry"
+    "type" : "home_goods_store|furniture_store|hardware_store|electronics_store",
+    "resId" : "home"
   },
   {
     "name" : "Gym",
-    "type" : "gym"
+    "type" : "gym",
+    "resId" : "gym"
   },
   {
     "name" : "Movies",
-    "type" : "movie_theater|movie_rental"
+    "type" : "movie_theater",
+    "resId" : "movies"
   },
   {
     "name" : "Lodging",
-    "type" : "lodging"
+    "type" : "lodging",
+    "resId" : "lodging"
   },
   {
     "name" : "Pharmacy",
-    "type" : "pharmacy"
+    "type" : "pharmacy",
+    "resId" : "pharmacy"
   }
 
 ]
