@@ -2,10 +2,8 @@ package com.tricon.labs.nearhere.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -15,19 +13,17 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tricon.labs.nearhere.R;
+import com.tricon.labs.nearhere.customviews.ScrollableMapFragment;
 import com.tricon.labs.nearhere.datahandlers.PlaceDetailsDataHandler;
 import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.models.PlaceDetailsResponse;
 
 public class PlaceDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-    private NestedScrollView nsvContainer;
 
     private GoogleMap map;
     private Place place;
@@ -45,13 +41,12 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        nsvContainer = (NestedScrollView) findViewById(R.id.nsv_container);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         ImageView ivPlaceCoverPhoto = (ImageView) findViewById(R.id.iv_place_cover_photo);
         TextView tvRating = (TextView) findViewById(R.id.tv_rating);
         TextView tvOpen = (TextView) findViewById(R.id.tv_open);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        ScrollableMapFragment mapFragment = ((ScrollableMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFragment.getMapAsync(this);
 
         place = getIntent().getParcelableExtra(KEY_PLACE);
@@ -82,11 +77,6 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         };
         placeDetailsDataHandler.fetchPlaceDetails(place.placeId);
 
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return nsvContainer.onTouchEvent(ev);
     }
 
     /*@Override
