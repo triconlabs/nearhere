@@ -11,4 +11,6 @@ public class NearHereConstants {
 
     public static final String PLACES_API_EXTENSION = "/json?key=" + BROWSER_API_KEY;
 
+    public static final String DATE_FORMAT = "dd MMM yy";
+
 }

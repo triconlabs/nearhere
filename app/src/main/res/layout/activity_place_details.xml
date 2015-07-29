@@ -42,9 +42,11 @@
         android:id="@+id/nsv_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
+            android:id="@+id/ll_scroll_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -191,6 +193,20 @@
                     android:background="#30000000" />
 
             </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_place_photo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_label_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reviews"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

@@ -10,4 +10,6 @@
     <string name="phone_no">Phone No :</string>
     <string name="open">Open :</string>
     <string name="website">Website :</string>
+    <string name="reviews">Reviews:</string>
+    <string name="title_activity_place_photos">PlacePhotosActivity</string>
 </resources>

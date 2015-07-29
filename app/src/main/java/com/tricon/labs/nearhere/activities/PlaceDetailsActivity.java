@@ -1,11 +1,15 @@
 package com.tricon.labs.nearhere.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +26,12 @@ import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.datahandlers.PlaceDetailsDataHandler;
 import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.models.PlaceDetailsResponse;
+import com.tricon.labs.nearhere.models.PlacePhoto;
+import com.tricon.labs.nearhere.models.PlaceReview;
+import com.tricon.labs.nearhere.utils.NearHereConstants;
+import com.tricon.labs.nearhere.utils.NearHereUtils;
+
+import java.util.ArrayList;
 
 public class PlaceDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -77,16 +87,6 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
             }
         };
         placeDetailsDataHandler.fetchPlaceDetails(place.placeId);
-
-        /*viewTransparent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", place.geometry.location.lat, place.geometry.location.lng, place.name);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                startActivity(intent);
-            }
-        });*/
-
     }
 
     /*@Override
@@ -136,6 +136,39 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
             RelativeLayout rlWebsite = (RelativeLayout) findViewById(R.id.rl_website);
             tvWebsite.setText(place.website);
             rlWebsite.setVisibility(View.VISIBLE);
+        }
+        if(null != place.photos && place.photos.size() > 1) {
+            ImageView ivPlacePhoto = (ImageView) findViewById(R.id.iv_place_photo);
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(place.photos.get(1).getPhotoReference(), ivPlacePhoto);
+            ivPlacePhoto.setVisibility(View.VISIBLE);
+            ivPlacePhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(PlaceDetailsActivity.this, PlacePhotosActivity.class);
+                    intent.putParcelableArrayListExtra(PlacePhotosActivity.KEY_PLACE_PHOTOS, (ArrayList<PlacePhoto>) place.photos);
+                    startActivity(intent);
+                }
+            });
+        }
+        if(null != place.reviews && place.reviews.size() > 0) {
+            findViewById(R.id.tv_label_reviews).setVisibility(View.VISIBLE);
+            LinearLayout llScrollContainer = (LinearLayout) findViewById(R.id.ll_scroll_container);
+            for(PlaceReview placeReview : place.reviews) {
+                View view = LayoutInflater.from(this).inflate(R.layout.view_review_list_item, null);
+                AppCompatRatingBar rbRating = (AppCompatRatingBar) view.findViewById(R.id.rb_rating);
+                TextView tvDate = (TextView) view.findViewById(R.id.tv_date);
+                TextView tvAuthorName = (TextView) view.findViewById(R.id.tv_author_name);
+                TextView tvReview = (TextView) view.findViewById(R.id.tv_review);
+
+                rbRating.setRating(placeReview.rating);
+                tvAuthorName.setText(placeReview.authorName);
+                tvReview.setText(placeReview.review);
+                if(0.0 != placeReview.time) {
+                  tvDate.setText(NearHereUtils.getDate(placeReview.time * 1000, NearHereConstants.DATE_FORMAT));
+                }
+                llScrollContainer.addView(view);
+            }
         }
     }
 

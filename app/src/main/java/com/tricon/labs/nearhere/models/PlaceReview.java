@@ -13,7 +13,7 @@ public class PlaceReview implements Parcelable {
     @SerializedName("author_name")
     public String authorName;
 
-    public int rating;
+    public float rating;
 
     @SerializedName("text")
     public String review;
@@ -22,7 +22,7 @@ public class PlaceReview implements Parcelable {
 
     public PlaceReview(Parcel in) {
         authorName = in.readString();
-        rating = in.readInt();
+        rating = in.readFloat();
         review = in.readString();
         time = in.readLong();
     }
@@ -35,7 +35,7 @@ public class PlaceReview implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(authorName);
-        dest.writeInt(rating);
+        dest.writeFloat(rating);
         dest.writeString(review);
         dest.writeLong(time);
     }
