@@ -11,6 +11,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.tricon.labs.nearhere.R;
 
 /**
  * Created by gautam on 7/17/2015.
@@ -36,9 +37,9 @@ public class NearHereApplication extends Application {
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
-                .showImageOnLoading(android.R.color.white)
-                .showImageForEmptyUri(android.R.color.white)
-                .showImageOnFail(android.R.color.white)
+                .showImageOnLoading(R.color.black_transparency)
+                .showImageForEmptyUri(R.color.black_transparency)
+                .showImageOnFail(R.color.black_transparency)
                 .build();
 
         // Create global configuration and initialize ImageLoader with this

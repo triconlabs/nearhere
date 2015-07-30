@@ -127,13 +127,13 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         }
         if(null != place.phoneNo) {
             TextView tvPhoneNo = (TextView) findViewById(R.id.tv_phone_no);
-            RelativeLayout rlPhoneNo = (RelativeLayout) findViewById(R.id.rl_phone_no);
+            LinearLayout rlPhoneNo = (LinearLayout) findViewById(R.id.rl_phone_no);
             tvPhoneNo.setText(place.phoneNo);
             rlPhoneNo.setVisibility(View.VISIBLE);
         }
         if(null != place.website) {
             TextView tvWebsite = (TextView) findViewById(R.id.tv_website);
-            RelativeLayout rlWebsite = (RelativeLayout) findViewById(R.id.rl_website);
+            LinearLayout rlWebsite = (LinearLayout) findViewById(R.id.rl_website);
             tvWebsite.setText(place.website);
             rlWebsite.setVisibility(View.VISIBLE);
         }
@@ -153,7 +153,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
         }
         if(null != place.reviews && place.reviews.size() > 0) {
             findViewById(R.id.tv_label_reviews).setVisibility(View.VISIBLE);
-            LinearLayout llScrollContainer = (LinearLayout) findViewById(R.id.ll_scroll_container);
+            LinearLayout llReviews = (LinearLayout) findViewById(R.id.ll_reviews);
             for(PlaceReview placeReview : place.reviews) {
                 View view = LayoutInflater.from(this).inflate(R.layout.view_review_list_item, null);
                 AppCompatRatingBar rbRating = (AppCompatRatingBar) view.findViewById(R.id.rb_rating);
@@ -167,7 +167,7 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
                 if(0.0 != placeReview.time) {
                   tvDate.setText(NearHereUtils.getDate(placeReview.time * 1000, NearHereConstants.DATE_FORMAT));
                 }
-                llScrollContainer.addView(view);
+                llReviews.addView(view);
             }
         }
     }

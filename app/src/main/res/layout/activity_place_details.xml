@@ -49,6 +49,7 @@
             android:id="@+id/ll_scroll_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:orientation="vertical">
 
             <fragment
@@ -56,157 +57,139 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:liteMode="true"/>
+                android:layout_marginBottom="20dp"
+                app:liteMode="true" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:weightSum="1">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
+                    android:layout_weight="0.3"
                     android:text="@string/rating"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_rating"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="12dp"
+                    android:layout_weight="0.7"
                     android:drawablePadding="7dp"
+                    android:drawableEnd="@mipmap/star"
                     android:drawableRight="@mipmap/star"
-                    android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#30000000" />
+            </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/rl_phone_no"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:visibility="gone">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:weightSum="1">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
+                    android:layout_weight="0.3"
                     android:text="@string/phone_no"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_phone_no"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="12dp"
-                    android:textSize="16sp"
+                    android:layout_weight="0.7"
                     android:autoLink="phone"
-                    android:textColor="@android:color/black"/>
+                    android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#30000000" />
+            </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:weightSum="1">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
+                    android:layout_weight="0.3"
                     android:text="@string/open"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_open"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="12dp"
-                    android:textColor="@android:color/black"
+                    android:layout_weight="0.7"
                     android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#30000000" />
+            </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/rl_website"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:visibility="gone">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:weightSum="1">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
+                    android:layout_weight="0.3"
                     android:text="@string/website"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_website"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="12dp"
-                    android:textSize="16sp"
+                    android:layout_weight="0.7"
+                    android:lines="1"
+                    android:ellipsize="end"
                     android:autoLink="web"
-                    android:textColor="@android:color/black"/>
+                    android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#30000000" />
-
-            </RelativeLayout>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/iv_place_photo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginBottom="20dp"
                 android:scaleType="centerCrop"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_label_reviews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="@string/reviews"
-                android:visibility="gone"/>
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
 
         </LinearLayout>
 

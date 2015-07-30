@@ -19,6 +19,9 @@ public class PlacePhotosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_photos);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         ViewPager vpPlacePhotos = (ViewPager) findViewById(R.id.vp_place_photos);
 
         final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
