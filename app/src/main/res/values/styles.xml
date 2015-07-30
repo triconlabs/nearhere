@@ -15,4 +15,9 @@
         <item name="colorPrimaryDark">#00796B</item>
     </style>
 
+    <style name="AppThemeTransparentActionBar" parent="AppTheme">
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
 </resources>

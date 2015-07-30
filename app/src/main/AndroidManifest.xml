@@ -56,7 +56,7 @@
             android:name=".activities.PlacePhotosActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".activities.PlaceDetailsActivity"
-            android:label="@string/title_activity_place_photos" >
+            android:theme="@style/AppThemeTransparentActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PlaceDetailsActivity" />

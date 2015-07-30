@@ -1,10 +1,8 @@
 package com.tricon.labs.nearhere.activities;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.adapters.PlacePhotoPagerAdapter;
@@ -23,9 +21,34 @@ public class PlacePhotosActivity extends AppCompatActivity {
 
         ViewPager vpPlacePhotos = (ViewPager) findViewById(R.id.vp_place_photos);
 
-        List<PlacePhoto> placePhotos = getIntent().getParcelableArrayListExtra(KEY_PLACE_PHOTOS);
+        final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+
+        final List<PlacePhoto> placePhotos = getIntent().getParcelableArrayListExtra(KEY_PLACE_PHOTOS);
         PlacePhotoPagerAdapter placePhotoPagerAdapter = new PlacePhotoPagerAdapter(getSupportFragmentManager(), placePhotos);
         vpPlacePhotos.setAdapter(placePhotoPagerAdapter);
+
+        if (actionBar != null) {
+            actionBar.setTitle("1/"+placePhotos.size());
+        }
+
+        vpPlacePhotos.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (actionBar != null) {
+                    actionBar.setTitle((position+1)+"/"+placePhotos.size());
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     /*@Override
