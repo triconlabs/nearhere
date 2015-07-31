@@ -100,8 +100,12 @@ public class PlacesActivity extends AppCompatActivity {
             @Override
             public void resultReceived(PlaceListResponse placeListResponse) {
                 pageToken = placeListResponse.nextPageToken;
-                placeListAdapter.addAll(placeListResponse.places);
-                onLoadComplete(null);
+                if(null != placeListResponse.places && placeListResponse.places.size() > 0) {
+                    placeListAdapter.addAll(placeListResponse.places);
+                    onLoadComplete(null);
+                } else {
+                    onLoadComplete("No results found!");
+                }
             }
 
             @Override
