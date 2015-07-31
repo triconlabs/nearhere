@@ -10,7 +10,7 @@
     "resId" : "cafe"
   },
   {
-    "name" : "Bar",
+    "name" : "Pub",
     "type" : "bar|night_club|casino",
     "resId" : "bar"
   },

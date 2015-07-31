@@ -1,5 +1,6 @@
 package com.tricon.labs.nearhere.activities;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class PlacePhotosActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black_transparency)));
 
         ViewPager vpPlacePhotos = (ViewPager) findViewById(R.id.vp_place_photos);
 
