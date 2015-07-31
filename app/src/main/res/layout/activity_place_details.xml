@@ -79,7 +79,7 @@
                     android:id="@+id/tv_rating"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.55"
+                    android:layout_weight="0.65"
                     android:drawablePadding="7dp"
                     android:drawableEnd="@mipmap/star"
                     android:drawableRight="@mipmap/star"
@@ -106,7 +106,7 @@
                     android:id="@+id/tv_open"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.55"
+                    android:layout_weight="0.65"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -132,7 +132,7 @@
                     android:id="@+id/tv_phone_no"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.55"
+                    android:layout_weight="0.65"
                     android:autoLink="phone"
                     android:textSize="16sp" />
 
@@ -159,8 +159,8 @@
                     android:id="@+id/tv_website"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.55"
-                    android:lines="1"
+                    android:layout_weight="0.65"
+                    android:singleLine="true"
                     android:ellipsize="end"
                     android:autoLink="web"
                     android:textSize="16sp" />
