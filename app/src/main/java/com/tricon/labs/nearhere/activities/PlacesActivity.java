@@ -16,12 +16,16 @@ import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.models.PlaceListResponse;
 import com.tricon.labs.nearhere.models.PlaceType;
 
+import java.util.ArrayList;
+
 public class PlacesActivity extends AppCompatActivity {
 
-    private RecyclerView rvPlaces;
     private ProgressBar pbPlaces;
 
+    private PlaceType placeType;
     private PlaceListAdapter placeListAdapter;
+    private String pageToken;
+    private int preLastItem = 0;
 
     public static final String KEY_PLACE_TYPE = "com.tricon.labs.nearhere.activities.PlaceListActivity.PLACE_TYPE";
 
@@ -30,33 +34,42 @@ public class PlacesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-        rvPlaces = (RecyclerView) findViewById(R.id.rv_places);
+        RecyclerView rvPlaces = (RecyclerView) findViewById(R.id.rv_places);
         pbPlaces = (ProgressBar) findViewById(R.id.pb_places);
 
-        PlaceType placeType = getIntent().getParcelableExtra(KEY_PLACE_TYPE);
+        placeType = getIntent().getParcelableExtra(KEY_PLACE_TYPE);
+        placeListAdapter = new PlaceListAdapter(new ArrayList<Place>());
 
         getSupportActionBar().setTitle(placeType.name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvPlaces.setHasFixedSize(true);
         rvPlaces.setLayoutManager(linearLayoutManager);
-        pbPlaces.setVisibility(View.VISIBLE);
+        rvPlaces.setAdapter(placeListAdapter);
 
-        PlaceListDataHandler placeListDataHandler = new PlaceListDataHandler() {
+        rvPlaces.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void resultReceived(PlaceListResponse placeListResponse) {
-                placeListAdapter = new PlaceListAdapter(placeListResponse.places);
-                rvPlaces.setAdapter(placeListAdapter);
-                onLoadComplete(null);
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visibleItemCount = linearLayoutManager.getChildCount();
+                int totalItemCount = linearLayoutManager.getItemCount();
+                int lastItem = linearLayoutManager.findFirstVisibleItemPosition() + visibleItemCount;
+                if (lastItem == totalItemCount && preLastItem != lastItem && null != pageToken) {
+                    preLastItem = lastItem;
+                    fetchNearbyPlaces();
+                }
             }
 
             @Override
-            public void errorReceived(String msg) {
-                onLoadComplete(msg);
+            public void onScrollStateChanged(RecyclerView recyclerView,
+                                             int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
             }
-        };
-        placeListDataHandler.fetchNearbyPlacesByType(placeType.type);
+        });
+
+        fetchNearbyPlaces();
     }
 
     /*@Override
@@ -81,9 +94,27 @@ public class PlacesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }*/
 
+    private void fetchNearbyPlaces() {
+        pbPlaces.setVisibility(View.VISIBLE);
+        PlaceListDataHandler placeListDataHandler = new PlaceListDataHandler() {
+            @Override
+            public void resultReceived(PlaceListResponse placeListResponse) {
+                pageToken = placeListResponse.nextPageToken;
+                placeListAdapter.addAll(placeListResponse.places);
+                onLoadComplete(null);
+            }
+
+            @Override
+            public void errorReceived(String msg) {
+                onLoadComplete(msg);
+            }
+        };
+        placeListDataHandler.fetchNearbyPlacesByType(placeType.type, pageToken);
+    }
+
     private void onLoadComplete(String msg) {
         pbPlaces.setVisibility(View.GONE);
-        if(null != msg) {
+        if (null != msg) {
             Toast.makeText(PlacesActivity.this, msg, Toast.LENGTH_SHORT).show();
         }
     }

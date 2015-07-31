@@ -12,4 +12,7 @@ public class PlaceListResponse {
     @SerializedName("results")
     public List<Place> places;
 
+    @SerializedName("next_page_token")
+    public String nextPageToken;
+
 }

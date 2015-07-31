@@ -65,6 +65,14 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Plac
         return places.get(position);
     }
 
+    public void addAll(List<Place> placeList) {
+        if(null != placeList && !placeList.isEmpty()) {
+            int positionStart = places.size();
+            places.addAll(placeList);
+            notifyItemRangeInserted(positionStart, placeList.size());
+        }
+    }
+
     public static class PlaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView ivPlaceCoverPhoto;
