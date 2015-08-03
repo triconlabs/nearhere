@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends NearHereBaseActivity {
 
     private PlaceTypeListAdapter placeTypeListAdapter;
 

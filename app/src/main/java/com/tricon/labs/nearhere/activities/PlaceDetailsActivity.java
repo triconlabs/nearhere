@@ -32,7 +32,7 @@ import com.tricon.labs.nearhere.utils.NearHereUtils;
 
 import java.util.ArrayList;
 
-public class PlaceDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class PlaceDetailsActivity extends NearHereBaseActivity implements OnMapReadyCallback {
 
     private GoogleMap map;
     private Place place;

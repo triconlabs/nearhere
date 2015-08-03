@@ -56,10 +56,14 @@
             android:name=".activities.PlacePhotosActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".activities.PlaceDetailsActivity"
-            android:theme="@style/AppThemeTransparentActionBar">
+            android:theme="@style/AppThemeTransparentActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PlaceDetailsActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NearHereBaseActivity"
+            android:label="@string/title_activity_near_here_base" >
         </activity>
 
         <meta-data

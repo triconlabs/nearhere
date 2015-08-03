@@ -15,12 +15,14 @@ abstract public class PlaceDetailsDataHandler extends VolleyBaseDataHandler<Plac
     private static final String PLACE_DETAILS_API = "details";
 
     public void fetchPlaceDetails(String placeId) {
-        StringBuilder url = new StringBuilder(NearHereConstants.PLACES_API_BASE_URL + PLACE_DETAILS_API + NearHereConstants.PLACES_API_EXTENSION);
-        url
-                .append("&placeid=")
-                .append(placeId);
-        GsonRequest<PlaceDetailsResponse> gsonRequest = new GsonRequest<>(Request.Method.GET, url.toString(), listener, errorListener, PlaceDetailsResponse.class);
-        NearHereApplication.requestQueue.add(gsonRequest);
+        if(null != NearHereApplication.currentLocation) {
+            StringBuilder url = new StringBuilder(NearHereConstants.PLACES_API_BASE_URL + PLACE_DETAILS_API + NearHereConstants.PLACES_API_EXTENSION);
+            url
+                    .append("&placeid=")
+                    .append(placeId);
+            GsonRequest<PlaceDetailsResponse> gsonRequest = new GsonRequest<>(Request.Method.GET, url.toString(), listener, errorListener, PlaceDetailsResponse.class);
+            NearHereApplication.requestQueue.add(gsonRequest);
+        }
     }
 
 }

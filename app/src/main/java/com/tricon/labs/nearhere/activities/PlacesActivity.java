@@ -18,7 +18,7 @@ import com.tricon.labs.nearhere.models.PlaceType;
 
 import java.util.ArrayList;
 
-public class PlacesActivity extends AppCompatActivity {
+public class PlacesActivity extends NearHereBaseActivity {
 
     private ProgressBar pbPlaces;
 

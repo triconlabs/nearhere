@@ -11,7 +11,7 @@ import com.tricon.labs.nearhere.models.PlacePhoto;
 
 import java.util.List;
 
-public class PlacePhotosActivity extends AppCompatActivity {
+public class PlacePhotosActivity extends NearHereBaseActivity {
 
     public static final String KEY_PLACE_PHOTOS = "com.tricon.labs.nearhere.activities.PlacePhotosActivity.PLACE_PHOTOS";
 

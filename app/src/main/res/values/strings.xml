@@ -13,4 +13,5 @@
     <string name="reviews">Reviews:</string>
     <string name="title_activity_place_photos">PlacePhotosActivity</string>
     <string name="by">by</string>
+    <string name="title_activity_near_here_base">NearHereBaseActivity</string>
 </resources>
