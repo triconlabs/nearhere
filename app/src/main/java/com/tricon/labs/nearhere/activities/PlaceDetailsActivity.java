@@ -64,7 +64,6 @@ public class PlaceDetailsActivity extends AppCompatActivity implements OnMapRead
 
         collapsingToolbarLayout.setTitle(place.name);
         tvRating.setText(place.rating + "");
-        tvRating.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.star, 0);
         if(null != place.photos && place.photos.size() > 0) {
             imageLoader.displayImage(place.photos.get(0).getPhotoReference(), ivPlaceCoverPhoto);
         }
