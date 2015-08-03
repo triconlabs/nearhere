@@ -2,5 +2,9 @@
 <resources>
 
     <color name="black_transparency">#50000000</color>
+    <color name="primary_color">#293991</color>
+    <color name="primary_dark_color">#342F82</color>
+    <color name="color_control_normal">#727272</color>
+    <color name="accent_color">#FF5722</color>
 
 </resources>

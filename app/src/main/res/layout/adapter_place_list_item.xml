@@ -63,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="7dp"
                 android:drawableRight="@mipmap/star"
+                android:gravity="center_vertical"
                 android:textSize="16sp"
                 android:text="4.5"/>
 
