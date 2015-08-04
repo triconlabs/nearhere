@@ -3,7 +3,7 @@ package com.tricon.labs.nearhere.activities;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.adapters.PlacePhotoPagerAdapter;
@@ -35,6 +35,25 @@ public class PlacePhotosActivity extends NearHereBaseActivity {
         if (actionBar != null) {
             actionBar.setTitle("1/"+placePhotos.size());
         }
+
+        vpPlacePhotos.setPageTransformer(false, new ViewPager.PageTransformer() {
+            private static final float MIN_SCALE = 0.75f;
+
+            @Override
+            public void transformPage(View page, float position) {
+                if (position >= -1 && position <= 1) {
+                    // Fade the page out.
+                    page.setAlpha(1 - Math.abs(position));
+                    // Scale the page down (between MIN_SCALE and 1)
+                    float scaleFactor = MIN_SCALE + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                    page.setScaleX(scaleFactor);
+                    page.setScaleY(scaleFactor);
+
+                } else {
+                    page.setAlpha(0);
+                }
+            }
+        });
 
         vpPlacePhotos.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
