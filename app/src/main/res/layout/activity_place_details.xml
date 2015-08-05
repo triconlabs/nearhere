@@ -24,7 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"/>
+                app:layout_collapseMode="parallax"
+                android:contentDescription="@string/app_name"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -84,6 +85,7 @@
                         android:id="@+id/tv_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableEnd="@mipmap/star"
                         android:drawableRight="@mipmap/star"
                         android:gravity="center_vertical"
                         android:drawablePadding="7dp"
@@ -181,7 +183,8 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:clickable="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:contentDescription="@string/app_name"/>
 
             <TextView
                 android:id="@+id/tv_label_reviews"

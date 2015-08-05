@@ -1,12 +1,9 @@
 package com.tricon.labs.nearhere.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 
-import com.tricon.labs.nearhere.R;
 import com.tricon.labs.nearhere.init.NearHereApplication;
 
 public class NearHereBaseActivity extends AppCompatActivity {

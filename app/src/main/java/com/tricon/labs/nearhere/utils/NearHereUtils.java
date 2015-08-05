@@ -12,7 +12,7 @@ public class NearHereUtils {
 
     public static String getDate(long timestamp, String format) {
         Date date = new Date(timestamp);
-        SimpleDateFormat dateFormatter = new SimpleDateFormat(format);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(format, Locale.getDefault());
         DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
         symbols.setAmPmStrings(new String[]{"am", "pm"});
         dateFormatter.setDateFormatSymbols(symbols);

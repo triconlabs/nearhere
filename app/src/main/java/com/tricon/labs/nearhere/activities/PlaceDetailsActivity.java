@@ -3,7 +3,6 @@ package com.tricon.labs.nearhere.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -154,7 +153,7 @@ public class PlaceDetailsActivity extends NearHereBaseActivity implements OnMapR
             findViewById(R.id.tv_label_reviews).setVisibility(View.VISIBLE);
             LinearLayout llReviews = (LinearLayout) findViewById(R.id.ll_reviews);
             for(PlaceReview placeReview : place.reviews) {
-                View view = LayoutInflater.from(this).inflate(R.layout.view_review_list_item, null);
+                View view = LayoutInflater.from(this).inflate(R.layout.view_review_list_item, llReviews, false);
                 AppCompatRatingBar rbRating = (AppCompatRatingBar) view.findViewById(R.id.rb_rating);
                 TextView tvDate = (TextView) view.findViewById(R.id.tv_date);
                 TextView tvAuthorName = (TextView) view.findViewById(R.id.tv_author_name);

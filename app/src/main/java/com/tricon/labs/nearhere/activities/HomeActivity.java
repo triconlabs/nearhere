@@ -2,7 +2,6 @@ package com.tricon.labs.nearhere.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -66,8 +65,7 @@ public class HomeActivity extends NearHereBaseActivity {
             is.read(buffer);
             is.close();
             JSONArray placeTypesJson = new JSONArray(new String(buffer, "UTF-8"));
-            List<PlaceType> placeTypes = GsonUtils.fromJson(placeTypesJson.toString(), new TypeToken<ArrayList<PlaceType>>() {}.getType());
-            return placeTypes;
+            return GsonUtils.fromJson(placeTypesJson.toString(), new TypeToken<ArrayList<PlaceType>>() {}.getType());
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;

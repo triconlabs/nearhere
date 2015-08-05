@@ -2,7 +2,6 @@ package com.tricon.labs.nearhere.datahandlers;
 
 import com.android.volley.Request;
 import com.tricon.labs.nearhere.init.NearHereApplication;
-import com.tricon.labs.nearhere.models.Place;
 import com.tricon.labs.nearhere.models.PlaceDetailsResponse;
 import com.tricon.labs.nearhere.utils.NearHereConstants;
 import com.tricon.labs.nearhere.volley.GsonRequest;

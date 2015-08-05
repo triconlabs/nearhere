@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -45,15 +47,13 @@
                     android:lines="1"
                     android:ellipsize="end"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="abcd  lkjd"/>
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_distance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="1.5km"/>
+                    android:textSize="14sp"/>
 
             </LinearLayout>
 
@@ -62,10 +62,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="7dp"
+                android:drawableEnd="@mipmap/star"
                 android:drawableRight="@mipmap/star"
                 android:gravity="center_vertical"
-                android:textSize="16sp"
-                android:text="4.5"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
