@@ -55,8 +55,8 @@ public class SplashActivity extends AppCompatActivity implements GoogleApiClient
 
             //Step 2 : build LocationRequest object
             locationRequest = new LocationRequest();
-            locationRequest.setInterval(10000);
-            locationRequest.setFastestInterval(5000);
+            locationRequest.setInterval(8000);
+            locationRequest.setFastestInterval(4000);
             locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
             //Step 3 : build LocationSettingsRequest object
