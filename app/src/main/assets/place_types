@@ -15,39 +15,9 @@
     "resId" : "bar"
   },
   {
-    "name" : "Attractions",
-    "type" : "museum|amusement_park|aquarium|art_gallery|church|hindu_temple|zoo|place_of_worship|mosque",
-    "resId" : "attractions"
-  },
-  {
-    "name" : "ATM",
-    "type" : "atm",
-    "resId" : "atm"
-  },
-  {
-    "name" : "Hospital",
-    "type" : "hospital|doctor|dentist",
-    "resId" : "hospital"
-  },
-  {
-    "name" : "Bakery",
-    "type" : "bakery",
-    "resId" : "bakery"
-  },
-  {
-    "name" : "Beauty Salon",
-    "type" : "beauty_salon|hair_care|spa",
-    "resId" : "beauty"
-  },
-  {
-    "name" : "Bowling Alley",
-    "type" : "bowling_alley",
-    "resId" : "bowling"
-  },
-  {
-    "name" : "Car World",
-    "type" : "car_wash|car_repair|car_rental|car_dealer",
-    "resId" : "car"
+    "name" : "Lodging",
+    "type" : "lodging",
+    "resId" : "lodging"
   },
   {
     "name" : "Shopping",
@@ -60,9 +30,19 @@
     "resId" : "grocery"
   },
   {
-    "name" : "Home",
-    "type" : "home_goods_store|furniture_store|hardware_store|electronics_store",
-    "resId" : "home"
+    "name" : "ATM",
+    "type" : "atm",
+    "resId" : "atm"
+  },
+  {
+    "name" : "Hospital",
+    "type" : "hospital|doctor|dentist",
+    "resId" : "hospital"
+  },
+  {
+    "name" : "Beauty Salon",
+    "type" : "beauty_salon|hair_care|spa",
+    "resId" : "beauty"
   },
   {
     "name" : "Gym",
@@ -70,14 +50,34 @@
     "resId" : "gym"
   },
   {
+    "name" : "Home",
+    "type" : "home_goods_store|furniture_store|hardware_store|electronics_store",
+    "resId" : "home"
+  },
+  {
+    "name" : "Bakery",
+    "type" : "bakery",
+    "resId" : "bakery"
+  },
+  {
+    "name" : "Attractions",
+    "type" : "museum|amusement_park|aquarium|art_gallery|church|hindu_temple|zoo|place_of_worship|mosque",
+    "resId" : "attractions"
+  },
+  {
+    "name" : "Bowling Alley",
+    "type" : "bowling_alley",
+    "resId" : "bowling"
+  },
+  {
+    "name" : "Car World",
+    "type" : "car_wash|car_repair|car_rental|car_dealer",
+    "resId" : "car"
+  },
+  {
     "name" : "Movies",
     "type" : "movie_theater",
     "resId" : "movies"
-  },
-  {
-    "name" : "Lodging",
-    "type" : "lodging",
-    "resId" : "lodging"
   },
   {
     "name" : "Pharmacy",
